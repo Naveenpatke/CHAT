@@ -1,0 +1,6 @@
+.chatDashBoard {
+    padding: 0.1em 0.1em 0.1em 0.1em;
+    display: grid;
+    grid-template-columns: 0.7fr 3fr;
+    grid-template-rows: 56.8em;
+}

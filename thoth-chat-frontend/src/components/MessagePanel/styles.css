@@ -1,0 +1,84 @@
+.MessagePannel{
+    margin-top: 0.5vh;
+    max-height: 190vh;
+    overflow-y: auto; 
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 9fr 1fr;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: auto;
+    border: 0.15em solid black;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 0.5vh;
+    padding: 0.5vh;
+    border-radius: 0.5vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 2vh;
+    margin-right: 1.5vh;
+}
+
+.messageFieldOfCurrentUser {  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.receivedMessageField {
+    display: flex;
+    flex-direction: row;
+}
+
+.darker {
+    background-color: blanchedalmond;
+}
+
+.rightSideImage {
+    height: 4vh;
+    width: 4vh;
+    padding-left: 2vh;
+}
+
+.leftSideDate {
+    height: 4vh;
+    width: 4vh;
+    padding-right: 1vh;
+}
+
+.currentUserImageAndMessage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.suggestionBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0.1vh;
+    margin-top: 1vh;
+}
+
+.suggestionMessagesButton{
+    text-decoration: none;
+    border: 0.15vh solid black;
+    border-radius: 0.5vh;
+    margin: 0.1vh 0.2vh 0.1vh 0.2vh;
+    color: black;
+    font-size: smaller;
+}
+
+.suggestionMessagesButton:hover {
+    background-color: #CACACA;
+}

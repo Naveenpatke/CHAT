@@ -1,0 +1,41 @@
+.profilePage {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-left: 1vh;
+    padding-right: 1vh;
+} 
+  
+.profilePic{
+  height: 15em;
+  border: 0.15em solid black;
+  border-radius: 10em;
+  margin: 1em;
+}
+.profilePageHeader {
+  border-bottom: 0.15em solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 4em;
+}
+
+.icon{
+  width: 100%;
+  margin: 1vh 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsCard{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em;
+  padding: 0.3em 0.8em 0 0.8em;
+  
+}
+
+span {
+  float: right;
+}
+
+.editIcon{
+  width: 2em;
+  height: 2.5em;
+}

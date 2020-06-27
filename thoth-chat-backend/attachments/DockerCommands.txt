@@ -1,0 +1,32 @@
+1)list all images
+
+2)list all containers
+    docker container ls
+3)stop a running container
+    docker container stop container.Id
+4)Run a container in background
+    docker run -d -p 4000:80 friendlyhello
+5)Delete a container
+
+
+=========================================================
+To create the docker group and add your user:
+
+Create the docker group.
+
+$ sudo groupadd docker
+Add your user to the docker group.
+
+$ sudo usermod -aG docker $USER
+Log out and log back in so that your group membership is re-evaluated.
+
+If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.
+
+On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.
+
+On Linux, you can also run the following command to activate the changes to groups:
+
+$ newgrp docker 
+Verify that you can run docker commands without sudo.
+
+$ docker run hello-world

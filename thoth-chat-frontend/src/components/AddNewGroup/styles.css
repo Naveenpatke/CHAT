@@ -1,0 +1,26 @@
+.AddNewGroupSideBar {
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 0.2fr 4fr;
+    grid-gap: 0.5vh;
+}
+
+.AddGroupPageHeader{
+    border-bottom: 0.15em solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.groupDetailsForm {
+    padding-top: 2vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.2fr 7fr;
+}
+
+label {
+    float: left;
+}

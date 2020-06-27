@@ -1,0 +1,5 @@
+thoth-chat-backend/login_db.sqlite3
+thoth-chat-backend/.idea
+thoth-chat-backend/venv
+thoth-chat-backend/__pycache__
+thoth-chat-frontend/node_moduless

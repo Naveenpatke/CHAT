@@ -1,0 +1,75 @@
+1)To download/clone the repository from the github
+	git clone https://github.com/hashedin/charcha.git
+2)TO obtain branch list
+	git branch (or) git branch --list
+3)To create a branch 
+	git branch branchName
+4)TO reflect this new branch in the github(remote) repository use the below command
+	git push -u repositoryUrl branchName
+
+$ git push -u https://github.com/Naveenpatke/Java-.git child
+
+The below is the response what we get after executing the above git command to add new child into the remote repository
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'child' on GitHub by visiting:
+remote:      https://github.com/Naveenpatke/Java-/pull/new/child
+remote:
+To https://github.com/Naveenpatke/Java-.git
+ * [new branch]      child -> child
+Branch 'child' set up to track remote branch 'child' from 'https://github.com/Naveenpatke/Java-.git'.
+
+5)To delete the branch 
+	git branch -d branchName
+  To delete remote branch
+	git push origin --delete branchName
+
+6)To list all the branch present in the remote location is
+	git branch -r
+7)To fetch all the branches from the remote location is 
+	git fecth -all
+8)To see or both local and remote branch 
+	git branch -a
+9)To switch among the braches
+	git checkout branchName
+10)To update the current working branch name
+	git branch -m newBranchName
+11)If u want to update the branchName of some other branch(rather than the current working branch)then
+	git branch -m oldBranchName newBranchName
+12)To check out the local repository for the changes/edit in the files,and the files which are need to be commited to the repository
+	git status
+13)To add the modifies file into the stagging area and make first commit
+	git add fileName 
+	git commit -m "my first commit"
+
+   after ur first commit, to push this commit into the remote location
+	git push origin currentBranchName
+
+	(Eg : $ git push origin dev
+		Enumerating objects: 5, done.
+		Counting objects: 100% (5/5), done.
+		Delta compression using up to 4 threads
+		Compressing objects: 100% (3/3), done.
+		Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+		Total 3 (delta 1), reused 0 (delta 0)
+		remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+		To https://github.com/Naveenpatke/Java-.git
+ 		  c1cd926..d361827  dev -> dev
+	)
+14) to merge the new branch with the current working branch
+	git merge origin/newBranchName
+
+15)to delete a file from teh current branch
+	git rm fileName
+    the above command delte the file from the local repo to update this in the remote repo
+    u need to first commit this changes ,and after this commit u need to push the branch to the local repo
+    using the below command
+	git push -u origin branchName
+
+16)
+naveen_p@LAP-LIN-1202:~/apps/app/thoth-chat-backend$ python3 -m venv venv
+naveen_p@LAP-LIN-1202:~/apps/app/thoth-chat-backend$ source venv/bin/activate
+
+
+
+

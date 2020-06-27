@@ -1,0 +1,222 @@
+*) To install python in ubuntu through termianl 
+	sudo apt-get update
+	sudo apt-get install python3.7
+   To check the python version (Now you have three Python versions, use python command for version 2.7, python3 for version 3.5, and/or python3.6 for version 3.6.1.)
+1)After installing python ,install pip by using the below command.
+	sudo apt install python-pip
+2)Setting up the virtualenv
+	create a Environments folder,and direct to that path
+	now execute the below command
+	cmd) virtualenv project1_env
+     To activate this new python environment
+	source projectName/bin/activate
+     now install few packages into this new environment
+	pip install numpy
+	pip install pytz
+	pip install psutil
+     To check all the list of all the package installed in this environment
+	pip list
+     To copy all the new package installed in thsi environment into a text file,type the below code
+	pip freeze --local > requirements.txt
+    To getOut from the current environment or to go back to global environment,type the below code
+	deactivate
+    To delete the python environment
+	rm -rf environmentName
+    To set a particular version of python ,follow the below code whicle creating the environment
+	virtualenv -p /usr/bin/python2.6 environmentName
+	The above version can be different depending on the path of ur python installation
+    To install all the package into the new environment ,which where saved in requirement.txt file
+	pip insatll -r requirements.txt
+
+3)django tutorials video1
+    Firstly route to the environment
+    To install django
+	pip install django
+    To display the version of the django(or to check whether django was installed correctly)
+	python -m django --version
+    To see the django admin
+	django-admin
+    select the startproject from the list which we obtain after we execute teh above command
+	django-admin startproject projectName
+    a project folder with the above projectName will be created,now set the path to taht project folder
+	cd projectName.
+4)To run server 
+	python manage.py runserver
+   copy the url which we can get after executing the above line.
+	http://127.0.0.1:8000/
+   To get into the admin route,use the below url.
+	http://127.0.0.1:8000/admin
+
+5)The project coding begins from here
+    To start a new app in the project,execute the below line
+	python manage.py startapp blog
+    write the routing codes in the views.py present inside the blog floder
+    craete a  new file  calles as urls.py within the blog directory
+	within the urls.py file(copy the code presnt inside the project floder urls.py in this new urls.py)
+6)To embed the html code within a template,we  need to create a templete directory within the blog directory and create a another directory and name it same as the projectApp name(name the directory as blog)
+	blog -> template -> blog ->template.html
+   To comfigure this new html page ,we need to configure this in apps.py file
+7)Bootstrap Starter Template:
+	https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template
+8)FrontEnd Snippets
+	https://github.com/CoreyMSchafer/code_snippets/tree/master/Django_Blog/snippets
+9)To create a new user for super user to login to the admin page 
+	i)before creating a superuser we need to create a database and few tables to store tha admin info
+		python manage.py makemigrations (It just detects changes and update the database)
+	  In order to apply migration 
+		python manage.py migrate (after running this command auth_user table will be created
+	ii)As auth_user table is created ,u can create the admin
+		python manage.py createsuperuser
+10)Database
+	ORM = object relational mapper
+	In models.py present inside the blog folder,here we create models for the databases which stores the data
+	after creating a model in models.py run the below code
+		python manage.py makemigrations
+	To check whether the new model is migrated or not,u can check the model in the migration folder present insude the blog app
+	Now to check the sql code which will be created by the orm model for that specific model,run the below command
+		python manage.py sqlmigrate AppName initial.pyNumber
+			eg : python manage.py sqlmigrate blog 0001
+
+	To run django python shell to  manage these models
+		python manage.py shell
+
+    command to access the data inside the model within the databaser (Here Post and User are name of the models(tables) which are present in the database)
+	>>> from blog.models import Post
+        >>> from django.contrib.auth.models import User
+        >>> User.object.all
+        Traceback (most recent call last):
+        File "<console>", line 1, in <module>
+        AttributeError: type object 'User' has no attribute 'object'
+        >>> Post.objects.all
+        <bound method BaseManager.all of <django.db.models.manager.Manager object at 0x7fbb39302090>>
+        >>> Post.objects.all()
+        <QuerySet []>
+        >>> User.objects.all()
+        <QuerySet [<User: naveen>, <User: patke>]>
+        >>> User.objects.first()
+        <User: naveen>
+        >>> User.objects.filter(username='patke')
+        <QuerySet [<User: patke>]>
+        >>> User.objects.filter(username='patke').first()
+        <User: patke>
+        >>> User
+        <class 'django.contrib.auth.models.User'>
+        >>> user = User.objects.filter(username='patke').first()
+        >>> user
+        <User: patke>
+        >>> user.id
+        2
+        >>> user.pk
+        2
+        >>> user
+        <User: patke>
+        use this user in the below example object creating code ,the username data which is stored in this user varaible is sent as the author for the below post object
+    To add a new row into the database in django ,first we nedd to create a object which contains the details of the Post and later we will save thsi object inside the Post model
+	Eg : This is how u create a object for the model
+		post_1 = Post(title = 'Blog 1',content='First Post Content!', author= user)
+	To save this post into the model,execute the below code
+		post_1.save()      
+	To check whether the data is incerted into the model
+		modelName.objects.all()
+			Eg: Post.objects.all()
+			    o/p:	QuerySet [<Post: Post object (1)>]>
+		as the above object is not much discriptive we can make the object more descriptive by 
+			we need tomake a dhunder str function within our models class (which is present inside the models.py file)
+    complete example of creating a object to model saving it to the model,and retriving the contentts of each attribute in a single Post(object)
+	>>> post_3= Post(title = 'Blog_3', content='Third Post content',author_id = user.id
+        )
+        >>> post_3.save()
+        >>> Post.objects.all()
+        <QuerySet [<Post: Blog 1>, <Post: Blog_2>, <Post: Blog_3>]>
+        >>> post = Post.objects.first()
+        >>> post
+        <Post: Blog 1>
+        >>> post.author
+        <User: patke>
+        >>> post = Post.objects.last()
+        >>> post
+        <Post: Blog_3>
+        >>> post.author
+        <User: naveen>
+        >>> post.content
+        'Third Post content'
+	>>> post.posted_date
+	datetime.datetime(2020, 1, 28, 7, 12, 4, 83367, tzinfo=<UTC>)
+	>>> post.author.email
+	'naveenpatke@gmail.com'
+	
+    A slight different way to create a post object and save it into the model
+	>>> user.post_set
+		<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x7f31b8e9b2d0>
+	>>> user.post_set.all()
+	<QuerySet [<Post: Blog_2>, <Post: Blog_3>]>
+	>>> user.post_set.create(title='Blog 3',content='Third Post content!')
+	<Post: Blog 3>
+	>>> Post.objects.all()
+	<QuerySet [<Post: Blog 1>, <Post: Blog_2>, <Post: Blog_3>, <Post: Blog 3>]>
+
+when u create a second model say Gchat, the below is the shell code for the implementation of the 		user.gchat_set.all() function
+		>>> from chat.models import Gchat, Post
+	>>> Gchat
+	<class 'chat.models.Gchat'>
+	>>> Gchat.objects.all()
+	<QuerySet []>
+	>>> message1 = Gchat(message="hello",author=user)
+	Traceback (most recent call last):
+	  File "<console>", line 1, in <module>
+	NameError: name 'user' is not defined
+	>>> from django.contrib.auth.models import User
+	>>> user = User.objects.first()
+	>>> user
+	<User: naveen>
+	>>> message1 = Gchat(message="hello",author=user)
+	>>> message1
+	<Gchat: hello>
+	>>> message1.save()
+	>>> user.gchat_set
+	<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x7f19583fbfd0>
+	>>> user.gchat_set.all()
+	<QuerySet [<Gchat: hello>]>
+	
+
+	
+   even after doing this much we cant see out Post model inside the admin page,To register or model 'Post' in the admin page add the below line of code into the admin.py file presnt within the Blog folder(our app folder)
+	from .models import Post
+	admin.site.register(Post)
+     the above 2 lines of the code need to written in the admin.py file,to register the Post model into the admin page
+
+11)views.py is the file were we write the routes
+
+12)For adding theme to the login form we need to install crispy-form with teh help of below command
+	pip install django-crispy-forms
+
+13) to add css files into our html templates we need to write {% load static %} in the starting of the html file before <!doctype html>
+	The folder name should be 'static' where we save the css files for the app
+	to use that css file into the html the syntax is
+	<link rel="styesheet" href="{% static 'blog/main.css' %}" >
+
+14)TO add new dynamic urls into the href we can write href="{% url 'blog-name' %}
+	here the blof-name is the name which we have provided for the route in urls.py
+
+15) To aiewdd the list view (eg for listing the blogs in the main web page)then we need to import the ListView from the django.views.generic ,the impirt command is 
+	from django.views.generic import ListView
+The django provides various views some of the examoles are updateView , ObjectView, ListView and many more
+
+16) in the blog app urls.py file we write 
+	from .views import
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+.SearchUserPanel {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1.2fr 0.08fr 0.08fr 4fr;
+    max-height: 73.2vh;
+    padding-right: 1vh;
+    padding-left: 1vh;
+}
+
+.usersListPanel {
+    margin-top: 0.5vh;
+    max-height: 37vh;
+    overflow-y: auto; 
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 9fr 1fr;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: auto;
+    border: 0.15em solid black;
+    border-radius: 0.5em;
+    margin-bottom: 0.2vh;
+}
+
+.selectedUsersListPanel{
+    margin-top: 0.5vh;
+    max-height: 15vh;
+    height: 20vh;
+    background-color: white;
+    overflow: auto;
+    border: 0.15em solid black;
+    border-radius: 0.5em;
+}
+
+.userNameCard {
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+span {
+    float: right;
+}
