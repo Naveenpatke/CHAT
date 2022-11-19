@@ -15,7 +15,7 @@
     "jquery": "^3.4.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "5.0.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "socket.io": "^2.3.0",
